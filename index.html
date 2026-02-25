@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GP STORE</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ffb6c1, #dda0dd);
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #f8e1f4;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #a64ca6;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff69b4;
+    }
+
+    /* Sección de categorías */
+/* Estilo general de categorías */
+.categorias {
+  display: flex;              /* en fila */
+  gap: 15px;
+  overflow-x: auto;           /* scroll horizontal */
+  padding: 20px;
+  background: #fff0f6;
+  scroll-snap-type: x mandatory; /* efecto de "encaje" */
+}
+
+.cat {
+  flex: 0 0 70%;              /* cada tarjeta ocupa 70% del ancho en móvil */
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  scroll-snap-align: start;   /* se alinea al inicio al deslizar */
+}
+
+.cat img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+/* En pantallas grandes vuelve al grid normal */
+@media (min-width: 769px) {
+  .categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: unset; /* quita scroll horizontal */
+  }
+  .cat {
+    flex: unset;
+  }
+}
+@media (min-width: 769px) {
+  .cat:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+}
+
+
+    /* Sección sobre nosotros */
+    .about {
+      padding: 50px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .about h2 {
+      color: #d87093;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    /* Galería de productos */
+    .gallery {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+    }
+
+    .item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .item h3 {
+      margin: 15px;
+      color: #a64ca6;
+    }
+
+    .item p {
+      margin: 0 15px 20px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    footer {
+      background: #333;
+      color: #aaa;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>GP STORE</header>
+
+  <nav>
+    <a href="#categorias">Categorías</a>
+    <a href="#about">Sobre Nosotros</a>
+    <a href="#productos">Productos</a>
+  </nav>
+
+  <!-- Sección de categorías -->
+  <section id="categorias" class="categorias">
+    <div class="cat" data-filter="variedades">
+      <img src="img/categ-veriedad.png" alt="variedad">
+      <h3>VARIEDADES</h3>
+    </div>
+   <div class="cat" data-filter="relojes">
+      <img src="img/categ-relojes.png" alt="relojes">
+      <h3>RELOJES </h3>
+    </div>
+    <div class="cat" data-filter="auriculares">
+      <img src="img/categ-auris.png" alt="auris">
+      <h3>AURICULARES</h3>
+    </div>
+  </section>
+  <!-- Sobre nosotros -->
+  <section id="about" class="about">
+    <h2>Sobre Nosotros</h2>
+  <p>
+    En <strong>GP Store</strong> unimos tecnología y estilo en cada producto. 
+    Smartwatches, auriculares y accesorios modernos diseñados para acompañar tu día con comodidad y personalidad. 
+    Tu confianza nos inspira a seguir creando combos exclusivos y experiencias únicas.
+  </p>
+  </section>
+<section id="productos" class="catalogo">
+  <!-- Galería de productos -->
+    <div class="producto" data-categoria="relojes">
+      <img src="img/producto-1.jpeg" alt="Smartwatch LUO LU-X34">
+      <h3>Smartwatch LUO LU-X34 + tumbler rosa con cerezas y florea</h3>
+       <p class="descripcion">
+       tecnología y estilo en un solo paquete. Incluye el Smartwatch LUO LU-X34, con correas intercambiables en rosa y blanco para que adaptes tu look a cada ocasión, y el tumbler rosa con diseño de cerezas y flores, ideal para acompañar tu día con un toque femenino y alegre.
+Perfecto para quienes buscan comodidad, elegancia y personalidad en cada detalle.</p>
+      <button class="btn-vermas" onclick="toggleDescripcion(this)">Ver más</button> 
+      <p><strong>Precio: 350.000 Gs</strong></p>
+  <!-- Botón WhatsApp -->
+      <a href="https://wa.me/595992701173?text=Hola%20estoy%20interesado%20en%20el%20smarwatch" 
+     target="_blank" 
+     class="btn-whatsapp">
+     Consultar por WhatsApp
+  </a>
+    </div>
+   <div class="producto" data-categoria="variedades">
+      <img src="img/producto-2.jpeg" alt="Plancha de Cabello CROC Classic Silver Titanium ">
+      <h3>Plancha de Cabello CROC Classic Silver Titanium Rosa/azul</h3>
+       <p class="descripcion">
+      CROC Classic Silver Titanium ofrecen un alisado profesional con un diseño elegante y moderno. Con placas de titanio que distribuyen el calor de manera uniforme, logran un acabado suave y brillante en menos tiempo. Disponibles en colores rosa y azul, son ideales para quienes buscan estilo y rendimiento en un solo producto.</p>
+       <button class="btn-vermas" onclick="toggleDescripcion(this)">Ver más</button>
+     <p><strong>Precio: 370.000 Gs</strong></p>
+     <a href="https://wa.me/595992701173?text=Hola%20estoy%20interesado%20en%20el%20plancha%20de%20cabello" 
+       target="_blank" class="btn-whatsapp">
+       Consultar por WhatsApp
+    </a>
+    </div>
+    <div class="producto" data-categoria="auriculares">
+      <img src="img/producto-6.jpeg" alt="Producto 3">
+      <h3>Smartwatch LUO LU-X35 con correas + Tumbler Cherry Love</h3>
+      <p class="descripcion">
+      reúne tecnología y estilo en un solo paquete. Incluye el Smartwatch LUO LU-X35, con correa beige intercambiable, cargador y base, diseñado para acompañarte con elegancia y funcionalidad. Además, el Tumbler blanco con diseño de cerezas y corazones rosas aporta un toque femenino y alegre para tu día a día.
+Perfecto para quienes buscan practicidad, moda y personalidad en cada detalle.</p>
+      <button class="btn-vermas" onclick="toggleDescripcion(this)">Ver más</button>
+    <p><strong>Precio: 450.000 Gs</strong></p>
+    <a href="https://wa.me/595992701173?text=Hola%20estoy%20interesado%20en%20las%20Planchas%20CROC%20Classic%20Silver%20Titanium" 
+       target="_blank" class="btn-whatsapp">
+       Consultar por WhatsApp
+    </a>
+    </div>
+  </section>
+<section class="testimonios">
+  <h2>Lo que dicen nuestros clientes</h2>
+  <div class="testimonios-carrusel">
+    <div class="testimonio">
+      <img src="img/testimonio-3.png" alt="Opinión">
+    </div>
+    <div class="testimonio">
+      <img src="img/testimonio-1.png" alt="Opinión">
+    </div>
+    <div class="testimonio">
+      <img src="img/testimonio-2.png" alt="Opinión">
+    </div>
+          <div class="testimonio">
+      <img src="img/testimonio-4.png" alt="Opinión">
+    </div>
+  </div>
+  <div class="flecha-deslizar">
+    <span>Desliza</span>
+  </div>
+</section>
+<section class="confianza">
+  <h2>Compra con Confianza</h2>
+  <div class="confianza-grid">
+    <div class="confianza-item">
+      <!-- 🚚 Envío rápido -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#a64ca6" viewBox="0 0 24 24">
+        <path d="M3 3h13v6h5l3 4v8h-2a3 3 0 0 1-6 0h-6a3 3 0 0 1-6 0H1V3h2zm2 2v12h2a3 3 0 0 1 6 0h6a3 3 0 0 1 6 0h1v-5l-2-3h-5V5H5z"/>
+      </svg>
+      <h3>Envío Rápido</h3>
+      <p>Recibe tus pedidos en tiempo récord.</p>
+    </div>
+
+    <div class="confianza-item">
+      <!-- 🤝 Atención personalizada -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#a64ca6" viewBox="0 0 24 24">
+        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+      </svg>
+      <h3>Atención Personalizada</h3>
+      <p>Estamos disponibles para ayudarte en todo momento.</p>
+    </div>
+
+    <div class="confianza-item">
+      <!-- ✅ Productos originales -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#a64ca6" viewBox="0 0 24 24">
+        <path d="M20.285 6.709l-11.285 11.291-5.285-5.291 1.414-1.414 3.871 3.877 9.871-9.877z"/>
+      </svg>
+      <h3>Productos Originales</h3>
+      <p>Garantía de calidad y autenticidad en cada compra.</p>
+    </div>
+  </div>
+</section>
+  <footer>
+    © 2026 GP Strore - Todos los derechos reservados
+  </footer>
+<!-- From Uiverse.io by ubaidi10 --> 
+<div class="card">
+  <a href="https://www.instagram.com/gpstorepyy" 
+     target="_blank" 
+     class="socialContainer containerOne">
+    <svg class="socialSvg instagramSvg" viewBox="0 0 16 16">
+      <path
+        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"
+      ></path>
+    </svg>
+  </a>
+  
+<a href="https://wa.me/595992701173?text=Hola%20👋%20vi%20tu%20catálogo%20en%20GP%20Store%20y%20quiero%20más%20información%20sobre%20los%20productos%20✨"
+     target="_blank" 
+     class="socialContainer containerFour">
+    <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+      <path
+        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"
+      ></path>
+    </svg>
+  </a>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
