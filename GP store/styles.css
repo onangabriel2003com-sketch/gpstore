@@ -1,0 +1,358 @@
+/* From Uiverse.io by ubaidi10 */ 
+.card {
+  position: fixed;       /* siempre visible */
+  top: 88%;              /* centrado vertical */
+  right: 0;            /* pegado al lado izquierdo */
+  transform: translateY(-50%); /* ajusta al centro exacto */
+  background-color: transparent; /* opcional: quita fondo */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  box-shadow: none;      /* opcional: quita sombra */
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 35px;
+  height: 35px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: 0.3s;
+  transform: scale(1.5);
+  border-radius: 15px;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #25d366;
+  transition-duration: 0.3s;
+  transform: scale(1.5);
+  border-radius: 15px;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.card:has(.socialContainer:hover) .socialContainer:not(:hover) {
+  opacity: 0.1;
+}
+.testimonios {
+  background: #f4f4f4;       /* fondo neutro */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.testimonios h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.testimonio {
+  margin: 15px auto;
+  max-width: 600px;
+  font-style: italic;
+  color: #555;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.testimonio span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #a64ca6;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas en PC */
+  gap: 20px;
+  padding: 20px;
+}
+
+.producto {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+ transition: transform 0.3s ease;
+}
+
+.producto img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+
+.producto:hover {
+  transform: scale(1.05); /* zoom al pasar el mouse */
+}
+
+.producto:active {
+  transform: scale(0.97); /* mini presión al tocar */
+  transition: transform 0.2s ease;
+}
+
+.producto h3 {
+  color: #a64ca6; /* tono femenino */
+  margin-bottom: 10px;
+}
+
+.producto p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25D366; /* verde WhatsApp */
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+/* 📱 Ajuste para celulares */
+@media (max-width: 768px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+  }
+}
+
+.descripcion {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* muestra solo 3 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-vermas {
+  background: #a64ca6; /* tono femenino */
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.btn-vermas:hover {
+  background: #8b3d8b;
+}
+
+.testimonios {
+  background: rgba(255, 255, 255, 0.85); /* fondo semitransparente */
+  border-radius: 12px;
+  padding: 25px 15px; /* más compacto */
+  margin: 30px auto;
+  max-width: 1000px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.testimonios h2 {
+  color: #a64ca6;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* Carrusel horizontal en móvil */
+.testimonios-carrusel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.testimonio {
+  flex: 0 0 80%; /* ocupa casi toda la pantalla en móvil */
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.testimonio:hover {
+  transform: scale(1.03);
+}
+
+/* Normalización de imágenes */
+.testimonio img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover; /* recorta para mantener proporción */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.testimonio span {
+  display: block;
+  font-weight: bold;
+  color: #a64ca6;
+}
+
+/* En pantallas grandes: grid ordenado */
+@media (min-width: 769px) {
+  .testimonios-carrusel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: unset;
+  }
+  .testimonio {
+    flex: unset;
+  }
+}
+
+.confianza {
+  background: #fff0f6;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.confianza h2 {
+  color: #a64ca6;
+  margin-bottom: 30px;
+}
+
+.confianza-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.confianza-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.confianza-item:hover {
+  transform: scale(1.05);
+}
+
+.confianza-item img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+.confianza-item h3 {
+  color: #d87093;
+  margin-bottom: 10px;
+}
+
+
+/* Fondo general del sitio */
+body {
+  background: #fff; /* color base */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><circle cx='20' cy='20' r='8' fill='%23f8c8dc' opacity='0.4'/><circle cx='10' cy='10' r='5' fill='%23dda0dd' opacity='0.3'/><circle cx='30' cy='30' r='6' fill='%23ffb6c1' opacity='0.3'/></svg>");
+  background-repeat: repeat;
+  background-attachment: fixed; /* efecto elegante al hacer scroll */
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* Secciones principales con transparencia para dejar ver el fondo */
+.about, .testimonios, .confianza, .productos {
+  background: rgba(255, 255, 255, 0.85); /* blanco semitransparente */
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Títulos */
+.about h2, .testimonios h2, .confianza h2, .productos h2 {
+  color: #a64ca6;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Ajuste de testimonios en carrusel */
+.testimonios-carrusel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.testimonio {
+  flex: 0 0 80%;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+}
+
+.flecha-deslizar {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #a64ca6;
+  font-weight: bold;
+  animation: parpadeo 1.5s infinite;
+}
+
+@keyframes parpadeo {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Solo mostrar la flecha en móvil */
+@media (min-width: 769px) {
+  .flecha-deslizar {
+    display: none;
+  }
+}
